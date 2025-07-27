@@ -84,7 +84,7 @@ function App() {
 
             <div className="w-full flex flex-col items-center gap-5 sm:gap-2 sm:flex sm:flex-row sm:px-2  xl:min-h-8/10 xl:w-9/10 xl:gap-10 border- border-blue-400">
             
-                <div className={`bg-[url(./public/kidusGebrielChurch.jpg)] bg-gradinet-to-b from-senbet-event-bg/22 to-white/0 w-19/20   text-white  rounded-lg border- border-green-700 lg:h-full`}>
+                <div className={`bg-[url(/public/kidusGebrielChurch.jpg)] bg-gradinet-to-b from-senbet-event-bg/22 to-white/0 w-19/20   text-white  rounded-lg border- border-green-700 lg:h-full`}>
                 
                   <div id="blureffect" className=" flex flex-col items-center xl:bg-gradient-to-r bg-gradient-to-br from-senbet-gold  rounded-lg to-senbet-event-gradient-gray/50 borde w-full p-2 lg:h-full">
 
