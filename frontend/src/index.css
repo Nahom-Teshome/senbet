@@ -3,6 +3,12 @@
 @import "tailwindcss";
 /* @import "tailwindcss-animate"; */
 
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @custom-variant dark (&:is(.dark *));
 body{
   box-sizing: border-box;
