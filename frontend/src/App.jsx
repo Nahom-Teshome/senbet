@@ -15,16 +15,16 @@ import Nav from './features/components/Nav'
 import Footer from './features/components/Footer'
 import Hero from './features/components/Hero'
 import {Calendar, MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars, Instagram, Facebook, Twitter , Mail, Phone} from 'lucide-react'
-
+import { useTranslation } from 'react-i18next'
 function App() {
-   
+    const {t} = useTranslation()
   return (
     <div className="no-scrollbar max-w-screen min-h-screen h-screen bg-gradient-to-b   from-senbet-gold to-white ">
        
         <Nav/>
         <div id="create space for the nav b/c it's fixed" className="h-2/25 sm:h-1/10 w-full bg-transparent p-0 m-0"></div>
 
-      <div id="Body " className=" h-full min-w-full bord border-red-500 bg-white flex flex-col gap-4"> 
+      <div id="Body" className=" h-full min-w-full bord border-red-500 bg-white flex flex-col gap-4"> 
           <Hero/>
          
 {/* Only For LG screen START */}
@@ -32,15 +32,15 @@ function App() {
               <header className="mt-10 w-2/5  boder border-red-400  md:bg-slate-00 lg:bg-green-00 flex flex-col gap-2 items-start p-4 ">
 
                 <h1 className="text-heading leading-15  text-5xl text-senbet-heading-gray borde border-black w-9/10">
-                  welcome to Selasie Senbet Timhirt Bet
+                  {t('app.title')}
                 </h1>
-                <h3 className="text-subheading text-senbet-sub-heading-gray borde border-black w-4/5">
-                  Learn the Bible, the dogma and remarkable ways of the Orthodox Church
+                <h3  className="text-subheading text-senbet-sub-heading-gray borde border-black w-4/5">
+                 {t('app.sub_title')}
                 </h3>
 
           </header>
 
-           <section className= "mt-10 w-3/5  min-h-5/20 brder border-red-400 flex overflow-x-scroll scroll-smooth no-scrollbar snap-x  rounded-lg">
+           <section  className= "mt-10 w-3/5  min-h-5/20 brder border-red-400 flex overflow-x-scroll scroll-smooth no-scrollbar snap-x  rounded-lg">
             <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg1} alt="" />
             <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg2} alt="" />
             <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg3} alt="" />
@@ -48,7 +48,7 @@ function App() {
           </section>
             </div>
 {/* Only For LG screen END */}
-          <section className="w-full sm:min-h-1/2 min-h-5/20 bordr lg:hidden flex overflow-x-scroll scroll-smooth snap-x gap-10">
+          <section  className="w-full sm:min-h-1/2 min-h-5/20 bordr lg:hidden flex overflow-x-scroll scroll-smooth snap-x gap-10">
             <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg1} alt="" />
             <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg2} alt="" />
             <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg3} alt="" />
@@ -61,30 +61,32 @@ function App() {
             <div className=" w-full text-center flex flex-col gap-1 borde border-gray-700">
 
               <h2 className="text-heading text-senbet-gold border- border-red-400  ">
-                Current Events
+                {t('app.event.title')}
               </h2>
 
               <h4 className="text-subheading text-senbet-sub-heading-gray border- border-red-400">
-                stay updated with all our events
+                {t('app.event.sub_title')}
               </h4>
 
             </div>
 
             <div className="w-full flex flex-col items-center gap-5 sm:gap-2 sm:flex sm:flex-row sm:px-2  xl:min-h-8/10 xl:w-9/10 xl:gap-10 border- border-blue-400">
             <Event
-              title={'Weekly Events'}
-              sub_title={'Join us weekly for new and exciting lessons'}
+              title={t('app.event.week.title')}
+              sub_title={t('app.event.week.sub_title')}
               time={'19:00 - 20:30'}
-              subject={'Mezmur Study'}
-              date={'June-16-2025'}
+              subject={t('app.week_session')}
+              date={t('app.week_date')}
+              link={t('app.week_link')}
             />
 
                 <Event
-              title={'Monthly Events'}
-              sub_title={'Join us monthly for new and exciting lessons'}
-              time={'19:00 - 20:30'}
-              subject={'Mezmur Study'}
-              date={'June-16-2025'}
+              title={t('app.event.month.title')}
+              sub_title={t('app.event.month.sub_title')}
+              time={'11:00 - '}
+              subject={t('app.month_session')}
+              date={t('app.month_date')}
+              link={t('app.month_link')}
             />
                 
                
@@ -92,39 +94,40 @@ function App() {
           </section>
 
           <section id="goals" className=" bg-gradient-to- from-senbet-goals-bg/39 to-senbet-gold/20 shadow-l flex gap-4  flex-col items-center md:hidden py-4 min-h-7/10  w-full borde  border-red-30">
-              <h3 className="text-mediumheading text-senbet-goals-header">Our Goals</h3>
+              <h3 className="text-mediumheading text-senbet-goals-header">{t('app.goal_title')}</h3>
               
               <GoalsVision
                 icon={'goals'}
-                text=" -To ensure that the dogma, canon, faith    and system oof the Ethiopian Orthodox Tewahedo Church are preserved and transmitted from generation to ggeneration without being corrupted or revised.<br/> -To ensure that every believer who is a follower of the church knows and understands the religious system in detail.<br/> -To ensure that young people learn the laws and systems of the church and become useful, good and morally upright citizens for the country and the people"
+               
+                text={t('app.goal_content')}
                 
               />
           </section>
           <section id="vision" className=" bg-gradient-to- from-senbet-goals-bg/39 to-senbet-gold/20 shadow-l flex gap-4  flex-col items-center md:hidden py-4 min-h-7/10  w-full borde  border-red-30">
-              <h3 className="text-mediumheading text-senbet-goals-header">Our Vision</h3>
+              <h3 className="text-mediumheading text-senbet-goals-header">{t('app.vision_title')}</h3>
             
               <GoalsVision
                 icon={'vision'}
-                text={" -To ensure that the dogma, canon, faith    and system oof the Ethiopian Orthodox Tewahedo Church are preserved and transmitted from generation to ggeneration without being corrupted or revised.<br/> -To ensure that every believer who is a follower of the church knows and understands the religious system in detail.<br/> -To ensure that young people learn the laws and systems of the church and become useful, good and morally upright citizens for the country and the people"}
+                text={t('app.vision_content')}
               />
           </section>
        
 {/* Only for XL SCREEN START */}
           <div id="ourGoals" className="hidden md:flex md:flex-row  md:justify-center md:gap-2 bg-gradient-to- from-senbet-goals-bg/39 to-senbet-gold/20 inset-shadow-lg flex   py-4 min-h-7/10 w-full borde  border-red-00">
                <section id="goals" className=" flex gap-4  flex-col items-center justify-center py-4 min-h-7/10 w-1/2 borde border-red-700">
-              <h3 className="text-mediumheading text-senbet-goals-header">Our Goals</h3>
+              <h3 className="text-mediumheading text-senbet-goals-header">{t('app.goal_title')}</h3>
              
               <GoalsVision
-                text=" -To ensure that the dogma, canon, faith    and system oof the Ethiopian Orthodox Tewahedo Church are preserved and transmitted from generation to ggeneration without being corrupted or revised.<br/> -To ensure that every believer who is a follower of the church knows and understands the religious system in detail.<br/> -To ensure that young people learn the laws and systems of the church and become useful, good and morally upright citizens for the country and the people"
+                text={t('app.goal_content')}
                 icon={'goals'}
               />
           </section>
           <section id="ourVision" className="gap-4 justify-center flex flex-col items-center
             py-4 min-h-7/10 w-1/2">
-              <h3 className="text-mediumheading text-senbet-goals-header">Our Vision</h3>
+              <h3 className="text-mediumheading text-senbet-goals-header">{t('app.vision_title')}</h3>
              
               <GoalsVision
-                text="-To ensure that the dogma, canon, faith    and system oof the Ethiopian Orthodox Tewahedo Church are preserved and transmitted from generation to ggeneration without being corrupted or revised.<br/> -To ensure that every believer who is a follower of the church knows and understands the religious system in detail.<br/> -To ensure that young people learn the laws and systems of the church and become useful, good and morally upright citizens for the country and the people"
+                text={t('app.vision_content')}
                 icon={'vision'}
               />
           </section>
