@@ -3,10 +3,13 @@ import currentEvent from '../../assets/ChurchWebsite/currentEvent.jpg'
 // import currentEvent1 from './assets/ChurchWebsite/currentEvent1.jpg'
 import currentEvent2 from '../../assets/ChurchWebsite/currentEvent2.jpg'
 import HeaderImg1 from '../../assets/ChurchWebsite/HeaderImg1.jpg'
-import {Calendar,Link,MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars, Instagram, Facebook, Twitter , Mail, Phone} from 'lucide-react'
+import {Calendar,Link,MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars, Instagram, Facebook, Twitter , Mail, Phone} from 
+'lucide-react'
 import {Button} from '@/components/ui/button'
-
-export default function Event({title,sub_title,time,subject,date}){
+import { useTranslation } from 'react-i18next'
+export default function Event({title,sub_title,time,subject,date,link}){
+    
+    const {t} = useTranslation()
     return(
         <>
         
@@ -34,7 +37,7 @@ export default function Event({title,sub_title,time,subject,date}){
                               <div className="text-body-txt ">{date}</div>
                               <div className="text-body-txt">{time}</div>
                               <div className="text-body-txt">{subject}</div>
-                              <div className="text-body-txt">Zoom Link</div>
+                              <div className="text-body-txt">{link}</div>
                           </div>
                         </div>
                         <div className="hidden xl:flex w-7/10 border- 2xl:h-full h-8/10 overflow-x-scroll snap-x rounded-md no-scrollbar ">
@@ -45,7 +48,7 @@ export default function Event({title,sub_title,time,subject,date}){
                       </div>
                       
                       <Button className="xl:hidden w-full p-6  text-senbet-event-CTA bg-white">
-                        <p className="text-cta ">View Gallery</p>
+                        <a href="#hero" className="text-cta ">{t('app.events.gallery')}</a>
                       </Button>
                   </div>
 

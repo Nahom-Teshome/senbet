@@ -1,12 +1,13 @@
 import {Calendar, MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars, Instagram, Facebook, Twitter , Mail, Phone} from 'lucide-react'
-
+import { useTranslation } from 'react-i18next'
 export default function Footer(){
+    const {t} = useTranslation()
     return(
          <footer id="footer" className="min-h-4/10 md:min-h-3/10 w-full flex bordr  border-red-900 bg-senbet-footer-bg ">
             <div className="h-full w-3/5 md:w-4/5 flex flex-col md:flex md:flex-row gap-2 bordr">
             <div>
               <div className="text-heading mt-5 ml-5 m  text-white w-fit h-fit text-start">
-                SELASIE
+                {t('app.name')}
               </div>
              <div className="text-white hidden  borde h-5/10 md:flex md:flex-col items-center justify-center gap-2">
                     <Facebook strokeWidth={1}/>
@@ -19,7 +20,7 @@ export default function Footer(){
 
                 <div className="flex flex-col justify-between md:justify-start md:items-center md:p-5 md:gap-3 borde borde-red-900 h-4/5 md:h-full w-full  wrap-anywhere">
                     <p className="hidden md:inline
-                     text-mediumheading font-light text-white w-fit border-b ">Contacts</p>
+                     text-mediumheading font-light text-white w-fit border-b ">{t('app.contact')}</p>
                   <div className="md:hidden text-white borde h-5/10 flex flex-col pl-10 items-start justify-center gap-2">
                     <Facebook strokeWidth={1}/>
                     <Instagram strokeWidth={1}/>
@@ -43,17 +44,17 @@ export default function Footer(){
             
             </div>
              <div className="w-2/5 md:w-1/5 h-full flex flex-col gap-3  items-end p-5 borde  border-red-900">
-                <p className="text-sm md:text-mediumheading font-light text-white w-fit border-b ">Quick links</p>
-                <div className="text-white/90 text-mediumbody-txt font-light "><a href="#events">Event</a></div>
+                <p className="text-sm md:text-mediumheading font-light text-white w-fit border-b ">{t('app.quick_links')}</p>
+                <div className="text-white/90 text-mediumbody-txt font-light "><a href="#events">{t('app.events')}</a></div>
       
                 <div className="text-white/90 text-mediumbody-txt font-light ">
-                   <a href="#ourGoals">Goals</a>
+                   <a href="#ourGoals">{t('app.goals')}</a>
                 </div>
                 <div className="text-white/90 text-mediumbody-txt font-light ">
-                    <a href="#ourVision">Vision</a>
+                    <a href="#ourVision">{t('app.vision')}</a>
               </div>
                 <div className="text-white/90 text-mediumbody-txt font-light ">
-                    <a href="#heroLg">Top</a>
+                    <a href="#heroLg">{t('app.top')}</a>
               </div>
             </div>
           </footer>
