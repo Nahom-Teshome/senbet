@@ -7,7 +7,7 @@ import {Calendar,Link,MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars
 'lucide-react'
 import {Button} from '@/components/ui/button'
 import { useTranslation } from 'react-i18next'
-export default function Event({title,sub_title,time,subject,date,link}){
+export default function Event({title,sub_title,eventDetails,time,subject,date,link}){
     
     const {t} = useTranslation()
     return(
@@ -25,25 +25,33 @@ export default function Event({title,sub_title,time,subject,date,link}){
 
                         
 
-                        <div className="border- xl:w-2/4 xl:text-black/60 border-red-400 flex gap-2">
+                        {
+                          eventDetails.map((event,i)=>{
+                            return(
+                               <div className="border- xl:w-2/4 xl:text-black/60 border-red-400 flex gap-2"
+                                    key={i}>
 
-                          <div className=" flex flex-col xl:gap-3 gap-1 ml-auto ">
-                            <Calendar size={20} strokeWidth={2.5}/>
-                            <Clock size={20} strokeWidth={2.5}/>
-                            <BookOpen size={20} strokeWidth={2.5}/>
-                            <Link size={20} strokeWidth={2.5}/>
-                          </div>
-                          <div className=" flex flex-col xl:gap-3 gap-1 mr-auto">
-                              <div className="text-body-txt ">{date}</div>
-                              <div className="text-body-txt">{time}</div>
-                              <div className="text-body-txt">{subject}</div>
-                              <div className="text-body-txt">{link}</div>
-                          </div>
+                                  <div className=" flex flex-col xl:gap-3 gap-1 ml-auto ">
+                                    <Calendar size={20} strokeWidth={2.5}/>
+                                    <Clock size={20} strokeWidth={2.5}/>
+                                    <BookOpen size={20} strokeWidth={2.5}/>
+                                    <Link size={20} strokeWidth={2.5}/>
+                                  </div>
+                                  <div className=" flex flex-col xl:gap-3 gap-1 mr-auto">
+                                      <div className="text-body-txt ">{event.date}</div>
+                                      <div className="text-body-txt">{event.time}</div>
+                                      <div className="text-body-txt">{event.subject}</div>
+                                      <div className="text-body-txt">{event.link}</div>
+                                  </div>
                         </div>
-                        <div className="hidden xl:flex w-7/10 border- 2xl:h-full h-8/10 overflow-x-scroll snap-x rounded-md no-scrollbar ">
-                            <img className="borde border-black snap-center h-full min-w-full" src={currentEvent} alt="" />
-                            <img className="borde border-black snap-center h-full min-w-full" src={currentEvent2} alt="" />
-                            <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg1} alt="" />
+                            )
+                          })
+                         }
+
+                        <div className={`hidden xl:flex   ${eventDetails.length > 0 ? ' w-full':'w-7/10'} border- 2xl:h-full h-8/10 overflow-x-scroll snap-x rounded-md no-scrollbar `}>
+                            <img className="borde border-black snap-center h-full min-w-full object-cover" src={currentEvent} alt="" />
+                            <img className="borde border-black snap-center h-full min-w-full object-cover" src={currentEvent2} alt="" />
+                            <img className="borde border-black snap-center h-full min-w-full object-cover object-center" src={HeaderImg1} alt="" />
                         </div>
                       </div>
                       

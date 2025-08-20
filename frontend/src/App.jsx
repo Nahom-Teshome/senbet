@@ -3,6 +3,12 @@ import {Button} from '@/components/ui/button'
 import HeaderImg1 from './assets/ChurchWebsite/HeaderImg1.jpg'
 import HeaderImg2 from './assets/ChurchWebsite/HeaderImg2.jpg'
 import HeaderImg3 from './assets/ChurchWebsite/HeaderImg3.jpg'
+import HeaderImg4 from './assets/ChurchWebsite/HeaderImg4.jpg'
+import HeaderImg5 from './assets/ChurchWebsite/HeaderImg5.jpg'
+import HeaderImg6 from './assets/ChurchWebsite/HeaderImg6.jpg'
+import HeaderImg7 from './assets/ChurchWebsite/HeaderImg7.jpg'
+import HeaderImg8 from './assets/ChurchWebsite/HeaderImg8.jpg'
+import HeaderImg9 from './assets/ChurchWebsite/HeaderImg9.jpg'
 import currentEvent from './assets/ChurchWebsite/currentEvent.jpg'
 import currentEvent1 from './assets/ChurchWebsite/currentEvent1.jpg'
 import currentEvent2 from './assets/ChurchWebsite/currentEvent2.jpg'
@@ -41,20 +47,32 @@ function App() {
           </header>
 
            <section  className= "mt-10 w-3/5  min-h-5/20 brder border-red-400 flex overflow-x-scroll scroll-smooth no-scrollbar snap-x  rounded-lg">
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg2} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={HeaderImg3} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg1} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg2} alt="" />
+             <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg4} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg5} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg6} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg7} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg8} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg9} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg3} alt="" />
            
           </section>
             </div>
 {/* Only For LG screen END */}
           <section  className="w-full sm:min-h-1/2 min-h-5/20 bordr lg:hidden flex overflow-x-scroll scroll-smooth snap-x gap-10">
-            <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg2} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full" src={HeaderImg3} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={currentEvent} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={currentEvent1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg" src={currentEvent2} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg1} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg2} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg4} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg5} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg6} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg7} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg8} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg9} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg3} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={currentEvent} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={currentEvent1} alt="" />
+            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover object-bottom" src={currentEvent2} alt="" />
           </section>
 
           <section id="events" className="w-full  xl:min-h-2/3 xl: py-4 border- border-blue-400 flex flex-col items-center gap-5 ">
@@ -74,19 +92,35 @@ function App() {
             <Event
               title={t('app.event.week.title')}
               sub_title={t('app.event.week.sub_title')}
-              time={'19:00 - 20:30'}
-              subject={t('app.week_session')}
-              date={t('app.week_date')}
-              link={t('app.week_link')}
+              eventDetails={[{
+                time:t('app.week_time'),
+                subject:t('app.week_session'),
+                date:t('app.week_date'),
+                link:t('app.week_link')
+              },
+              {
+                time:t('app.week_time1'),
+                subject:t('app.week_session1'),
+                date:t('app.week_date1'),
+                link:t('app.week_link1')
+              }
+          ]}
+              
             />
 
                 <Event
               title={t('app.event.month.title')}
               sub_title={t('app.event.month.sub_title')}
-              time={'11:00 - '}
-              subject={t('app.month_session')}
-              date={t('app.month_date')}
-              link={t('app.month_link')}
+              eventDetails={[{
+                time:t('app.month_time'),
+                subject:t('app.month_session'),
+                date:t('app.month_date'),
+                link:t('app.month_link')
+              }]}
+             
+              // subject={t('app.month_session')}
+              // date={t('app.month_date')}
+              // link={t('app.month_link')}
             />
                 
                
