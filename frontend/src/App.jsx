@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import {Button} from '@/components/ui/button'
+import { useState, useEffect} from 'react'
+
 import HeaderImg1 from './assets/ChurchWebsite/HeaderImg1.jpg'
 import HeaderImg2 from './assets/ChurchWebsite/HeaderImg2.jpg'
 import HeaderImg3 from './assets/ChurchWebsite/HeaderImg3.jpg'
@@ -15,19 +15,42 @@ import currentEvent2 from './assets/ChurchWebsite/currentEvent2.jpg'
 
 import Event from './features/components/Event'
 import GoalsVision from './features/components/GoalsVision'
-import goals from './assets/ChurchWebsite/goals.jpg'
-import vision from './assets/ChurchWebsite/vision.jpg'
+import Carousel from './features/components/Carousel'
 import Nav from './features/components/Nav'
 import Footer from './features/components/Footer'
 import Hero from './features/components/Hero'
-import {Calendar, MenuIcon,MapPin,Clock,BookOpen, CircleCheckBig, Binoculars, Instagram, Facebook, Twitter , Mail, Phone} from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
 function App() {
+
+    const [isMobile,setIsMobile] = useState(window.innerWidth >= 1024)
+  
     const {t} = useTranslation()
+    const headerImages = [HeaderImg1
+                          ,HeaderImg2
+                          ,HeaderImg4
+                          ,HeaderImg5
+                          ,HeaderImg6
+                          ,HeaderImg7
+                          ,HeaderImg8
+                          ,HeaderImg9
+                          ,HeaderImg3]
+    const headerCarouselImg =[...headerImages,headerImages[0]]
+    const mdHeaderCarouselImg =[...headerImages,currentEvent,currentEvent1,currentEvent2,headerImages[0]]//FOR MEDIUM SCREENS
+      useEffect(()=>{
+            const handleResize = ()=>{
+              setIsMobile(  window.innerWidth >= 1024 )
+            }
+
+            window.addEventListener('resize',handleResize)
+
+            return ()=>{window.removeEventListener('resize', handleResize)}
+        },[])
+        
   return (
     <div className="no-scrollbar max-w-screen min-h-screen h-screen bg-gradient-to-b   from-senbet-gold to-white ">
        
-        <Nav/>
+        <Nav isMobile={isMobile}/>
         <div id="create space for the nav b/c it's fixed" className="h-2/25 sm:h-1/10 w-full bg-transparent p-0 m-0"></div>
 
       <div id="Body" className=" h-full min-w-full bord border-red-500 bg-white flex flex-col gap-4"> 
@@ -45,35 +68,12 @@ function App() {
                 </h3>
 
           </header>
-
-           <section  className= "mt-10 w-3/5  min-h-5/20 brder border-red-400 flex overflow-x-scroll scroll-smooth no-scrollbar snap-x  rounded-lg">
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg2} alt="" />
-             <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg4} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg5} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg6} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg7} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg8} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg9} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg3} alt="" />
-           
-          </section>
+              {isMobile?   <Carousel imgArray={headerCarouselImg}  isMobile={isMobile}/>:null}
+                
             </div>
 {/* Only For LG screen END */}
-          <section  className="w-full sm:min-h-1/2 min-h-5/20 bordr lg:hidden flex overflow-x-scroll scroll-smooth snap-x gap-10">
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg2} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg4} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg5} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg6} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg7} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg8} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg9} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={HeaderImg3} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={currentEvent} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover" src={currentEvent1} alt="" />
-            <img className="borde border-black snap-center h-full min-w-full rounded-lg object-cover object-bottom" src={currentEvent2} alt="" />
-          </section>
+        
+         {!isMobile? <Carousel imgArray={mdHeaderCarouselImg} isMobile={isMobile}/>:null}
 
           <section id="events" className="w-full  xl:min-h-2/3 xl: py-4 border- border-blue-400 flex flex-col items-center gap-5 ">
             <div className=" w-full text-center flex flex-col gap-1 borde border-gray-700">
@@ -118,9 +118,6 @@ function App() {
                 link:t('app.month_link')
               }]}
              
-              // subject={t('app.month_session')}
-              // date={t('app.month_date')}
-              // link={t('app.month_link')}
             />
                 
                

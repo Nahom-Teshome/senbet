@@ -13,7 +13,7 @@ import { Switch } from "@/components/ui/switch"
 import { Avatar , AvatarFallback, AvatarImage} from "@/components/ui/avatar"
 import { useTranslation } from 'react-i18next'
 import { MenuIcon} from 'lucide-react'
-export default function Nav(){
+export default function Nav({isMobile}){
     const {i18n,t} = useTranslation()
     const [lang, setLang] = React.useState('am')
     const changeLang = ()=>{
@@ -35,7 +35,7 @@ export default function Nav(){
                      <AvatarImage src={ChurchIcon} />
                      <AvatarFallback>Holy Trinity</AvatarFallback>
                 </Avatar>
-              <div className='text-title'>{t('app.name')} </div>
+              <div className={`${!isMobile && 'text-2xl text-black'} text-title`}>{t('app.name')} </div>
             </div>
          <div className="text-mediumbody-txt  gap-5 borde items-center text-background hidden md:flex">
               <a href="#events">{t('app.events')}</a>

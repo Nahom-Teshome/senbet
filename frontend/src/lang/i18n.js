@@ -6,7 +6,7 @@ const resources = {
     en:{
         translation:{
             "app.name":"KIDIST SELASIE",
-            "app.title":"welcome to Selasie Senbet Timhirt Bet",
+            "app.title":"Welcome to Kidist Selasie Senbet Timhirt Bet",
             "app.sub_title":"Learn the Bible, the dogma and remarkable ways of the Orthodox Church",
             "app.event.title":"Current Events",
             "app.event.sub_title":"stay updated with all our events",
@@ -46,7 +46,7 @@ const resources = {
     am:{
         translation:{
             "app.name":"ቅድስት ስላሴ",
-            "app.title":"እንኳን ወደ ሥላሴ ሰንበት ትምህርት ቤት በደህና መጡ",
+            "app.title":"እንኳን ወደ ቅድስት ሥላሴ ሰንበት ትምህርት ቤት በደህና መጡ",
             "app.sub_title":"የኦርቶዶክስ ቤተ ክርስቲያን ዶግማ፣ ቀኖና እና መጽሐፍ ቅዱስ ይማሩ",
             "app.event.title":"መርሃ ግብር",
             "app.event.sub_title":"አዳዲስ መርሃ ግብሮቻችንን ይከታተሉ",
