@@ -21,14 +21,14 @@ export default function Event({title,sub_title,eventDetails,time,subject,date,li
                       <h4 className="text-mediumbody-txt font-medium w-9/10 borde text-center">
                         {sub_title}
                       </h4>
-                      <div className="borde borde-red-400 flex gap-3 direction-reverse xl:gap- xl:w-full xl:min-h-8/10  h-full  items-center my-2.5">
+                      <div className="borde border-red-400 flex gap-8 xl:gap-3 direction-reverse xl:gap- xl:w-full xl:min-h-8/10  h-full  items-center my-2.5">
 
                         
 
                         {
                           eventDetails.map((event,i)=>{
                             return(
-                               <div className="border- xl:w-2/4 xl:text-black/60 border-red-400 flex gap-2"
+                               <div className="borde xl:w-2/4 xl:text-black/60 border-red-400 flex gap-2"
                                     key={i}>
 
                                   <div className=" flex flex-col xl:gap-3 gap-1 ml-auto ">
