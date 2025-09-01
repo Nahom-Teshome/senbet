@@ -48,7 +48,7 @@ export default function Event({title,sub_title,eventDetails,time,subject,date,li
                           })
                          }
 
-                        <div className={`hidden xl:flex   ${eventDetails.length > 0 ? ' w-full':'w-7/10'} border- 2xl:h-full h-8/10 overflow-x-scroll snap-x rounded-md no-scrollbar `}>
+                        <div className={`hidden xl:flex   ${eventDetails.length > 0 ? ' w-full':'w-7/10'} border- 2xl:h-full h-8/10 overflow-x-scroll snap-x snap-mandatory rounded-md no-scrollbar `}>
                             <img className="borde border-black snap-center h-full min-w-full object-cover" src={currentEvent} alt="" />
                             <img className="borde border-black snap-center h-full min-w-full object-cover" src={currentEvent2} alt="" />
                             <img className="borde border-black snap-center h-full min-w-full object-cover object-center" src={HeaderImg1} alt="" />
